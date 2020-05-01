@@ -26,18 +26,41 @@ $("#currentTime").append(timeTd);
 newTableRow = $("<tr>");
 newTableD = $("<td>");
 mainTable = $("#mainTable");
+inputBox = $("<input>")
+timeString = moment().format('LT').toString()
+// current hour
+hourNow = timeString[0]
+retrieveBtn = $("#retrieveBtn")
+newBtn = $("<button>").attr({ type: "submit" })
 
-
-
-timeBlock = ['8', '9', '10', '11', '12', '1', '2', '3', '4', '5'];
+timeBlock = [8, 9, 10, 11, 12, 1, 2, 3, 4, 5];
 
 function sortTime() {
     timeBlock.forEach((hour) => {
         // i can append new <p> with each hour but table doesn't work??
         // mainTable.append($("<p>").text(hour))'
-        newHour = $("<tr>").text(hour)
-        submit = $("<input>").attr({ type: "submit", value: "submit" })
-        mainTable.append(newHour, submit)
+        function timeTable() {
+            newHour = $("<tr>").text(hour).attr({ id: `hour${hour}`, value: `${hour}` })
+            submit = $("<input>").attr({ type: "submit", value: "submit", id: `submit${hour}`, })
+            inputBoxSort = $("<input>").attr({ type: "text", id: `input${hour}`, value: "" })
+            hourDiv = $("<div>").attr({ id: `${hour}div` })
+            mainTable.append(newHour.append(submit, inputBoxSort, hourDiv))
+        }
+        timeTable()
+        // put everything in a form!!!
+
+        // make it color coded based on current time
+        // below works. now just need to make a dynamic one
+        // $("#hour8").addClass("futureColor")
+        // if (($(`#hour${hour}`).val()) > hourNow) {
+        //     $(`#hour${hour}`).addClass("futureColor")
+        // };
+
+        console.log($('#hour8').val())
+        // if ($(`#hour${hour}`).value > +hourNow) {
+        //     $(`#hour${hour}`).addClass("futureColor");
+        // };
+
         // not sure why it works now and didn't earlier. just use selectors instead of naming them as variables
         /* <input type="submit" value="Submit"> */
         //                  Add more than one attr
@@ -45,5 +68,59 @@ function sortTime() {
 
     });
 }
-
+// must run sort time to select sort time elements
 sortTime()
+console.log($('#hour8').val())
+// make on click save input
+// it works with .val() not .val!!!! now to figure out how to save it for later
+// getting input for every button! if it works outside of the function i should try this with setting the classes too...
+timeBlock.forEach((hour) => {
+    $(`#submit${hour}`).on("click", (e) => {
+        e.preventDefault()
+        // alert($(`#input${hour}`).val())
+        // need to create seperate variables. right now each one overrides the last
+        function makeInputVar() {
+        }
+        //don't have to make a seperate variable for each i can use template literal to change the key for each input!!!
+        filler = `At ${hour} o' clock: `
+        JSONinput = JSON.stringify(filler + $(`#input${hour}`).val())
+        localStorage.setItem(`JSONinput${hour}`, JSONinput)
+
+
+    })
+
+}
+);
+// have to move the retrieve button outside or it runs it for every item in the timeBlock! gives me localstorage 10 times lol
+retrieveBtn.on("click", (e) => {
+    // let filler = `At ${ hour } o'clock`
+    e.preventDefault()
+    // localStorage.getItem(`JSONinput${hour}`
+    // function forEachKey() {
+    //     for (var i = 0; i < localStorage.length; i++) {
+    //         button = newBtn.attr({ value: localStorage.key(i) })
+    //         newBtn.text(localStorage.key(i))
+    //         $("#retrieved").append(newBtn)
+    //         // $("#retrieved").append(newBtn.val(localStorage.key(i)))
+    //     }
+    // }
+    // forEachKey()
+    // empty so we don't get a bunch of schedules
+    $("#retrieved").empty()
+    for (var i = 0; i < localStorage.length; i++) {
+        let minus = i - 1
+        // console.log(localStorage.getItem(localStorage.key(i)));
+        // $(`#${i}div`
+        // get item... of key(i) gets me all the values in local storage
+        $("#retrieved").append(localStorage.getItem(localStorage.key(i)))
+    }
+    // $("#retrieved").remove()
+    // append them all to our schedule div
+
+    $("#retrieved").append()
+})
+// $("#submit8").on("click", () => {
+//     // alert("working!"))
+//     alert($("#input8").val());
+// });
+
