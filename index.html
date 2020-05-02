@@ -5,27 +5,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.2/css/bulma.min.css">
+    <!-- Bulma -->
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
     <link rel="stylesheet" href="assets/style.css">
 </head>
+<div>
 
-<body>
-    <div id="currentTime"></div>
-    <table style="width:100%" id="mainTable">
-        <tr>
-            <th id="dateHead">Date</th>
-            <th id="eventHead">Events</th>
-            <th></th>
-        </tr>
+    <body class="is-family-primary">
+        <div class="columns">
+            <div id="currentTime"></div>
+        </div>
+        <div class="columns">
+            <div style="width:100%" id="mainTable">
+            </div>
+            <div id="retrieved"></div>
+        </div>
+        <!-- <table style="width:100%" id="mainTable">
+            <tr>
+                <th id="dateHead">Date</th>
+                <th id="eventHead">Events</th>
+                <th></th>
+            </tr>
 
-    </table>
-    <button id="retrieveBtn">Retrieve Schedule</button>
-    <div id="retrieved"></div>
-    <script src="http://code.jquery.com/jquery-3.5.0.min.js"
-        integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous">
-        </script>
-    <script src="script/moment.js"></script>
-    <script src="script/script.js"></script>
+        </table> -->
+        <div class="columns">
+            <button id="retrieveBtn" class="button is-success">Retrieve Schedule</button>
+            <button id="clearSchedule" class="button is-warning">Clear Schedule</button>
 
-</body>
+        </div>
+
+        <script src="http://code.jquery.com/jquery-3.5.0.min.js"
+            integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous">
+            </script>
+        <script src="script/moment.js"></script>
+        <script src="script/script.js"></script>
+
+    </body>
+</div>
 
 </html>

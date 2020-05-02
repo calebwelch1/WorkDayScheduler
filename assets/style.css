@@ -9,3 +9,14 @@
 .futureColor{
     background-color: lightskyblue
 }
+body{
+    background: rgb(183, 223, 226);
+    margin-top: 50;
+    padding: 100;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    height:100vw;
+    width: 100vw;
+}

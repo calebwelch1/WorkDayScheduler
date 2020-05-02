@@ -21,8 +21,8 @@
 // 3. allow local storage saves to be retrieved
 
 currentTime = moment().format('MMMM Do YYYY, h:mm:ss a');
-timeTd = $("<td>").text(currentTime);
-$("#currentTime").append(timeTd);
+timeDiv = $("<div>").text(currentTime);
+$("#currentTime").append(timeDiv);
 newTableRow = $("<tr>");
 newTableD = $("<td>");
 mainTable = $("#mainTable");
@@ -41,8 +41,8 @@ function sortTime() {
         // mainTable.append($("<p>").text(hour))'
         function timeTable() {
             newHour = $("<tr>").text(hour).attr({ id: `hour${hour}`, value: `${hour}` })
-            submit = $("<input>").attr({ type: "submit", value: "submit", id: `submit${hour}`, })
-            inputBoxSort = $("<input>").attr({ type: "text", id: `input${hour}`, value: "" })
+            submit = $("<input>").attr({ type: "button", value: "save", id: `submit${hour}`, class: "button is-primary", })
+            inputBoxSort = $("<input>").attr({ type: "text", id: `input${hour}`, value: "", class: "input is-primary" })
             hourDiv = $("<div>").attr({ id: `${hour}div` })
             mainTable.append(newHour.append(submit, inputBoxSort, hourDiv))
         }
@@ -56,7 +56,7 @@ function sortTime() {
         //     $(`#hour${hour}`).addClass("futureColor")
         // };
 
-        console.log($('#hour8').val())
+        // console.log($('#hour8').val())
         // if ($(`#hour${hour}`).value > +hourNow) {
         //     $(`#hour${hour}`).addClass("futureColor");
         // };
@@ -70,10 +70,10 @@ function sortTime() {
 }
 // must run sort time to select sort time elements
 sortTime()
-console.log($('#hour8').val())
 // make on click save input
 // it works with .val() not .val!!!! now to figure out how to save it for later
 // getting input for every button! if it works outside of the function i should try this with setting the classes too...
+//submit button logic
 timeBlock.forEach((hour) => {
     $(`#submit${hour}`).on("click", (e) => {
         e.preventDefault()
@@ -85,6 +85,8 @@ timeBlock.forEach((hour) => {
         filler = `At ${hour} o' clock: `
         JSONinput = JSON.stringify(filler + $(`#input${hour}`).val())
         localStorage.setItem(`JSONinput${hour}`, JSONinput)
+        // how to clear????
+        // $(`#input${hour}`).reset();
 
 
     })
@@ -108,19 +110,31 @@ retrieveBtn.on("click", (e) => {
     // empty so we don't get a bunch of schedules
     $("#retrieved").empty()
     for (var i = 0; i < localStorage.length; i++) {
-        let minus = i - 1
+        // let minus = i - 1
         // console.log(localStorage.getItem(localStorage.key(i)));
         // $(`#${i}div`
         // get item... of key(i) gets me all the values in local storage
         $("#retrieved").append(localStorage.getItem(localStorage.key(i)))
+        // each part of schedule on a new line
+        $("#retrieved").append($("<br>"))
     }
     // $("#retrieved").remove()
     // append them all to our schedule div
 
     $("#retrieved").append()
 })
+$("#clearSchedule").on("click", () => {
+    $("#retrieved").empty()
+    localStorage.clear()
+})
 // $("#submit8").on("click", () => {
 //     // alert("working!"))
 //     alert($("#input8").val());
 // });
 
+
+// TO DO
+// clear input on save
+// color code
+// css
+// add to local storage key instead of overwriting 
