@@ -40,9 +40,9 @@ function sortTime() {
         // i can append new <p> with each hour but table doesn't work??
         // mainTable.append($("<p>").text(hour))'
         function timeTable() {
-            newHour = $("<tr>").text(hour).attr({ id: `hour${hour}`, value: `${hour}` })
-            submit = $("<input>").attr({ type: "button", value: "save", id: `submit${hour}`, class: "button is-primary", })
-            inputBoxSort = $("<input>").attr({ type: "text", id: `input${hour}`, value: "", class: "input is-primary" })
+            newHour = $("<div>").text(hour).attr({ id: `hour${hour}`, value: `${hour}`, class: "" })
+            submit = $("<input>").attr({ type: "button", value: "save", id: `submit${hour}`, class: "button is-primary ", })
+            inputBoxSort = $("<input>").attr({ type: "text", id: `input${hour}`, value: "", class: "input is-primary textarea" })
             hourDiv = $("<div>").attr({ id: `${hour}div` })
             mainTable.append(newHour.append(submit, inputBoxSort, hourDiv))
         }

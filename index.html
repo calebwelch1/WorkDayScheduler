@@ -10,18 +10,21 @@
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
     <link rel="stylesheet" href="assets/style.css">
 </head>
-<div>
+<div class="center">
 
-    <body class="is-family-primary">
-        <div class="columns">
-            <div id="currentTime"></div>
-        </div>
-        <div class="columns">
-            <div style="width:100%" id="mainTable">
+    <body class="is-family-primary is-full column">
+        <div class="column is-four-fifths is-offset-one-quarter">
+            <div class="columns">
+                <div id="currentTime"></div>
             </div>
-            <div id="retrieved"></div>
-        </div>
-        <!-- <table style="width:100%" id="mainTable">
+            <div class="columns is-full">
+                <div style="width:100%" id="mainTable">
+                </div>
+                <div class="column is-half">
+                    <div id="retrieved"></div>
+                </div>
+            </div>
+            <!-- <table style="width:100%" id="mainTable">
             <tr>
                 <th id="dateHead">Date</th>
                 <th id="eventHead">Events</th>
@@ -29,9 +32,11 @@
             </tr>
 
         </table> -->
-        <div class="columns">
-            <button id="retrieveBtn" class="button is-success">Retrieve Schedule</button>
-            <button id="clearSchedule" class="button is-warning">Clear Schedule</button>
+            <div class="columns">
+                <button id="retrieveBtn" class="button is-success">Retrieve Schedule</button>
+                <button id="clearSchedule" class="button is-warning">Clear Schedule</button>
+
+            </div>
 
         </div>
 
