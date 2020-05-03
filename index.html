@@ -1,30 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.2/css/bulma.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.8.2/css/bulma.min.css"
+    />
     <!-- Bulma -->
-    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
-    <link rel="stylesheet" href="assets/style.css">
-</head>
-<div class="center">
+    <script
+      defer
+      src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"
+    ></script>
+    <link rel="stylesheet" href="assets/style.css" />
+  </head>
 
-    <body class="is-family-primary is-full column">
-        <div class="column is-four-fifths is-offset-one-quarter">
-            <div class="columns">
-                <div id="currentTime"></div>
-            </div>
-            <div class="columns is-full">
-                <div style="width:100%" id="mainTable">
-                </div>
-                <div class="column is-half">
-                    <div id="retrieved"></div>
-                </div>
-            </div>
-            <!-- <table style="width:100%" id="mainTable">
+    <body class="box">  
+    <div class="center is-full">
+    <!-- <body class="is-family-primary is-full level"> -->
+      <div class="column level is-four-fifths box">
+        <div class="columns">
+            <div id="currentTime" class="centerText"></div>
+          </div>
+       
+        <div class="columns is-full box">
+          <div style="width: 100%;" id="mainTable" class="box"></div>
+          <div class="column is-">
+            
+          </div>
+        </div>
+        <!-- <table style="width:100%" id="mainTable">
             <tr>
                 <th id="dateHead">Date</th>
                 <th id="eventHead">Events</th>
@@ -32,21 +38,24 @@
             </tr>
 
         </table> -->
-            <div class="columns">
-                <button id="retrieveBtn" class="button is-success">Retrieve Schedule</button>
-                <button id="clearSchedule" class="button is-warning">Clear Schedule</button>
-
-            </div>
-
+        <div class="columns ">
+          <button id="retrieveBtn" class="button is-success">
+            Retrieve Schedule
+          </button>
+          <button id="clearSchedule" class="button is-warning">
+            Clear Schedule
+          </button>
         </div>
+        <div id="retrieved" class="box centerText"></div>
+      </div>
 
-        <script src="http://code.jquery.com/jquery-3.5.0.min.js"
-            integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous">
-            </script>
-        <script src="script/moment.js"></script>
-        <script src="script/script.js"></script>
-
+      <script
+        src="http://code.jquery.com/jquery-3.5.0.min.js"
+        integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ="
+        crossorigin="anonymous"
+      ></script>
+      <script src="script/moment.js"></script>
+      <script src="script/script.js"></script>
     </body>
-</div>
-
+  </div>
 </html>
